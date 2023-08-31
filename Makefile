@@ -28,7 +28,7 @@ all:$(NAME)
 
 $(NAME):$(OBJ)
 	$(AR) $(NAME)  $(OBJ)
-%.o : %.c $(INC)
+%.o : %.c $(HDR)
 	$(CC) $(FLAGS) -I $(INC) -c $< -o $@
 clean:
 	$(RM) $(OBJ)

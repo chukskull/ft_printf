@@ -14,9 +14,12 @@ CC=gcc
 FLAGS=-Wall -Wextra -Werror
 AR=ar crs
 RM=rm -rf
-FILES= ft_printf ft_putchar ft_putnbr ft_cnvert_hex ft_putnbr_uns ft_putstr
+FILEC= ft_printf ft_putchar ft_putnbr ft_cnvert_hex ft_putnbr_uns ft_putstr
+FILES= $(addprefix src/, $(FILEC))
 SRC=$(FILES:=.c)
 OBJ=$(FILES:=.o)
+INC=inc/
+HDR= $(addprefix inc/, ft_printf.h);
 NAME=libftprintf.a
 
 .PHONY:all clean fclean re bonus
@@ -24,9 +27,9 @@ NAME=libftprintf.a
 all:$(NAME)
 
 $(NAME):$(OBJ)
-	$(AR) $(NAME) $(OBJ)
-%.o : %.c 
-	$(CC) $(FLAGS) -c $< -o $@
+	$(AR) $(NAME)  $(OBJ)
+%.o : %.c $(INC)
+	$(CC) $(FLAGS) -I $(INC) -c $< -o $@
 clean:
 	$(RM) $(OBJ)
 fclean : clean

@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int	ft_printf(const char *str, ...);
+int	    ft_printf(const char *str, ...);
 void	ft_putchar(char c, int *count);
 void	ft_cnvert_hex(int n, char *base, int *count);
 void	ft_putnbr(int n, int *count);
